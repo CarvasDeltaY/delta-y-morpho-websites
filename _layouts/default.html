@@ -14,7 +14,32 @@
         display: none !important;
       }
 
-      /* Ensure the content stretches across the full width */
+      /* Full-screen iframe container */
+      .iframe-container {
+        width: 100vw;  /* Full viewport width */
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Make iframe responsive */
+      .iframe-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none; /* Removes border for seamless view */
+      }
+
+      /* Remove any unnecessary margins/padding */
+      body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrolling */
+        height: 100%;
+      }
+
       .wrapper {
         max-width: 100%;
         margin: 0;
@@ -23,7 +48,8 @@
 
       section {
         width: 100%;
-        padding: 20px;
+        height: 100vh; /* Full screen height */
+        padding: 0;
       }
     </style>
   </head>
@@ -33,11 +59,11 @@
       <section>
         {{ content }}
 
-        <!-- Centered Power BI iframe -->
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-          <iframe title="20250310 - Markets Final Dataset V1" width="1024" height="1060" 
+        <!-- Full-screen Power BI iframe -->
+        <div class="iframe-container">
+          <iframe title="20250310 - Markets Final Dataset V1" 
                   src="https://app.powerbi.com/view?r=eyJrIjoiZjIzYWJkZWItODEzNC00MDJmLWE3MzMtODViZjZjYTE0Y2MyIiwidCI6ImExM2EyNGE1LTZjODAtNDBmNi1iYzFkLWJhMjk2YWJjMjBhNiIsImMiOjl9" 
-                  frameborder="0" allowFullScreen="true">
+                  allowFullScreen="true">
           </iframe>
         </div>
       </section>
